@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta charset="ISO-8859-1" />
+	<title>Online Mobile Recharge</title>
+</h:head>
+<h:body>
+	<h:form id="registration" prependId="false">
+		<table border="0" align="right">
+			<tr>
+				<td>
+					<h>Welcome,&#160; #{loginBean.loggedinUser.user_firstname}&#160;
+						#{loginBean.loggedinUser.user_lastname}</h>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h>Your wallet balance is Rs.&#160;
+						#{rechargeBean.wallet.wallet_amount}</h>
+				</td>
+			</tr>
+		</table>
+		<table border="0" align="center">
+			<th>
+			<td align="left" colspan="3"><h:messages id="message"
+					style="color:blue;" /></td>
+			</th>
+			<tr>
+				<td align="center" colspan="3"><h2>Mobile Recharge</h2><hr /></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="Phone Number:" /></td>
+				<td colspan="2"><h:inputText id="phno"
+						value="#{rechargeBean.phno}" required="true"
+						requiredMessage="Please enter phone number" maxlength="10" /> <h:message
+						for="phno" style="color:red;" /></td>
+			</tr>
+			
+				<tr>
+				<td><h:outputText value="City:" /></td>
+				<td colspan="2"><h:selectOneMenu id="cityli"
+						value="#{rechargeBean.city.city_id}">
+						<f:selectItem itemLabel="Select" itemValue="" />
+						<f:selectItems value="#{rechargeBean.cityList}" var="c"
+							itemValue="#{c.city_id}" itemLabel="#{c.city_name}" />
+						<f:ajax render = "vendorli" listener="#{rechargeBean.fetchVendorListForCity}" />
+					</h:selectOneMenu></td>
+			</tr>
+			
+			<tr>
+				<td><h:outputText value="Vendor:" /></td>
+				<td colspan="2"><h:selectOneMenu id="vendorli"
+						value="#{rechargeBean.vendor.vendor_id}">
+						<f:selectItem itemLabel="Select" itemValue="" />
+						<f:selectItems value="#{rechargeBean.vendorList}" var="v"
+							itemValue="#{v.vendor_id}" itemLabel="#{v.vendor_name}" />
+						<f:ajax render = "schemeli" listener="#{rechargeBean.fetchSchemeListForVendor}" />
+					</h:selectOneMenu></td>
+			</tr>
+		
+			<tr>
+				<td><h:outputText value="Scheme:" /></td>
+				<td colspan="2"><h:selectOneMenu id="schemeli"
+						value="#{rechargeBean.scheme.scheme_id}">
+						<f:selectItem itemLabel="Select" itemValue="" />
+						<f:selectItems value="#{rechargeBean.schemeList}" var="s"
+							itemValue="#{s.scheme_id}" itemLabel="#{s.scheme_name}" />
+						<f:ajax render = "planli" listener="#{rechargeBean.fetchPlanListForScheme}" />
+					</h:selectOneMenu></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="Plan:" /></td>
+				<td colspan="2"><h:selectOneMenu id="planli"
+						value="#{rechargeBean.plan.plan_id}">
+						<f:selectItem itemLabel="Select" itemValue="" />
+						<f:selectItems value="#{rechargeBean.planList}" var="p"
+							itemValue="#{p.plan_id}" itemLabel="#{p.plan_name}" />
+						<f:ajax render = "amt valid" listener="#{rechargeBean.fetchRechargeAmountnValidity}" />
+					</h:selectOneMenu></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="Recharge Amount:" /></td>
+				<td colspan="2"><h:inputText id="amt"
+						value="#{rechargeBean.plan_amount}" disabled="true" /></td>
+			</tr>
+			
+			<tr>
+				<td><h:outputText value="Validity:" /></td>
+				<td colspan="2"><h:inputText id="valid"
+						value="#{rechargeBean.plan_validity}" disabled="true" /></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="right"><h:commandButton value="Recharge" actionListener="#{rechargeBean.recharge}"/></td>
+			</tr>
+			<tr><td><h:commandLink value="Back to Home" immediate="true" action="dashboard.xhtml?faces-redirect=true"/></td></tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

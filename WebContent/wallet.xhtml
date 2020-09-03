@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Wallet</title>
+</head>
+<body>
+
+	<h:form>
+		<table border="0" align="center">
+						
+			<tr>
+				<td align="center" colspan="3"><h1>USER WALLET</h1></td>
+			</tr>
+		
+		</table>
+		<table border="0" align="center">
+			<tr>
+				<td><h:outputText value="Enter Wallet Amount*:"/></td>
+				<td><h:inputText id="wallet"
+						value="#{walletBean.wallet.wallet_amount}" required="true"
+						requiredMessage="Please enter wallet amount">
+					</h:inputText> <h:message for="wallet" style="color:red;" />
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="3" align="right"><h:commandButton type="submit"
+						value=" Submit " action="#{walletBean.manageWallet}" /></td>
+			</tr>
+			<tr>
+				<td align="left"><h:commandLink value="Back to Home"
+						immediate="true" action="dashboard.xhtml?faces-redirect=true" /></td>
+			</tr>
+			<tr>
+				<td>
+					<h5>'*' indicates mandatory fields</h5>
+				</td>
+
+			</tr>
+		</table>
+
+	</h:form>
+
+</body>
+</html>

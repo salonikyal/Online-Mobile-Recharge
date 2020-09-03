@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta charset="ISO-8859-1" />
+<title>Online Mobile Recharge</title>
+<h:outputStylesheet library="css" name="table-style.css" />
+</h:head>
+<h:body>
+	<h:form id="rechargehistory">
+		<table border="0" align="right">
+			<tr>
+				<td>
+					<h6>Welcome,&#160; #{loginBean.loggedinUser.user_firstname} &#160;
+						#{loginBean.loggedinUser.user_lastname}</h6>
+				</td>
+			</tr>
+		</table>
+		<table border="0" align="center">
+			<th>
+			<td align="left" colspan="3"><h:messages id="message"
+					style="color:blue;" /></td>
+			</th>
+			<tr>
+				<td align="center" colspan="3"><h3>Recharge History</h3></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="3">
+					<h:dataTable
+						value="#{rechargeHistoryBean.rechargeHistoryList}" border="1"
+						var="rh" styleClass="order-table" headerClass="order-table-header"
+						rowClasses="order-table-odd-row,order-table-even-row">
+
+						<h:column>
+							<f:facet name="header">Vendor</f:facet>
+    					#{rh.vendor_name}
+    				</h:column>
+						<h:column>
+							<f:facet name="header">Scheme</f:facet>
+    					#{rh.scheme_name}
+    				</h:column>
+						<h:column>
+							<f:facet name="header">City</f:facet>
+    					#{rh.city_name}
+    				</h:column>
+						<h:column>
+							<f:facet name="header">Plan</f:facet>
+    					#{rh.plan_name}
+    				</h:column>
+						
+					</h:dataTable></td>
+			</tr>
+			<tr><td><h:commandLink value="Back to Home" immediate="true" action="dashboard.xhtml?faces-redirect=true"/></td></tr>
+		</table>
+	</h:form>
+</h:body>
+</html>

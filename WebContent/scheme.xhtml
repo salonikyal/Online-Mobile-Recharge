@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="ISO-8859-1"/>
+
+<title>Scheme</title>
+</head>
+<body>
+	<h1>SCHEME</h1>
+	<hr />
+	<h:form>
+
+		<table>
+
+			<tr>
+				<td>Scheme*</td>
+				<td><h:inputText id="scheme" value="#{schemeBean.scheme.scheme_name}"
+						required="true" requiredMessage="Please enter a scheme ">
+					</h:inputText> <h:message for="scheme" style="color:red;" /></td>
+			</tr>
+
+			<tr>
+				<td><h:commandButton type="submit" value=" Submit " actionListener="#{schemeBean.addScheme}" /></td>
+				<td><h:commandButton type="reset" value="Cancel" /></td>
+			</tr>
+
+		</table>
+		
+		<table border="0" align="left">
+			<tr>
+				<td>
+					<h5>'*' indicates mandatory fields</h5>
+				</td>
+			</tr>
+		</table>
+
+	</h:form>
+
+</body>
+</html>

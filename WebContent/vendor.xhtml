@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="ISO-8859-1"/>
+
+<title>Vendor</title>
+</head>
+<body>
+	<h1>VENDOR</h1>
+	<hr />
+	<h:form>
+
+		<table>
+
+			<tr>
+				<td>Vendor*</td>
+				<td><h:inputText id="vendor" value="#{vendorBean.vendor.vendor_name}"
+						required="true" requiredMessage="Please select a vendor">
+					</h:inputText> <h:message for="vendor" style="color:red;" /></td>
+			</tr>
+
+			<tr>
+				<td><h:commandButton type="submit" value=" Submit " actionListener="#{vendorBean.addVendor}" /></td>
+				<td><h:commandButton type="reset" value="Cancel" /></td>
+			</tr>
+
+		</table>
+		<table border="0" align="left">
+			<tr>
+				<td>
+					<h5>'*' indicates mandatory fields</h5>
+				</td>
+			</tr>
+		</table>
+
+	</h:form>
+
+</body>
+</html>

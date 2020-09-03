@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Online Mobile Recharge</title>
+</head>
+<body>
+	<h:form id="dashboard">
+	
+	<table border="0" align="right">
+			<tr>
+				<td>
+					<h>Welcome,&#160; #{loginBean.loggedinUser.user_firstname} &#160;
+						#{loginBean.loggedinUser.user_lastname}!</h>
+				</td>
+			</tr>
+		
+			<tr align="right">
+				<td><h:commandLink value="Logout" immediate="true"
+						actionListener="#{loginBean.userLogout}" /></td>
+			</tr>
+		</table>
+		<table border="0" align="center">
+			<tr>
+				<td align="center" ><h2 style="color:brown;">Menu</h2></td>
+			</tr>
+			
+			<tr>
+				<td><h:commandLink value="Recharge" immediate="true"
+						action="Recharge.xhtml?faces-redirect=true" /></td>
+			</tr>
+			
+			<tr>
+				<td><h:commandLink value="Add Wallet Money" immediate="true"
+						action="wallet.xhtml?faces-redirect=true" /></td>
+			</tr>
+			
+			<tr>
+				<td><h:commandLink value="Recharge History" immediate="true"
+						action="rechargehistory.xhtml?faces-redirect=true" /></td>
+			</tr>
+			
+			<tr>
+				<td><h:commandLink value="User Profile" immediate="true"
+						action="UserProfile.xhtml?faces-redirect=true" /></td>
+			</tr>
+			
+			<tr>
+				<td><h:commandLink value="Reset Password" immediate="true"
+						action="resetpassword.xhtml?faces-redirect=true" /></td>
+			</tr>	
+
+		</table>
+		
+		
+	</h:form>
+</body>
+</html>

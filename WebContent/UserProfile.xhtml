@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta charset="ISO-8859-1" />
+<title>User Profile</title>
+</head>
+<body>
+	<h:form>
+
+		
+		 <table border="0" align="center">
+			<td style="color:orange;" >
+				<h1>USER PROFILE</h1><hr />
+			</td>
+		</table>
+		
+
+   <table border="0" align="center">
+
+			<tr>
+				<td ><h3>User Name: &#160; #{loginBean.loggedinUser.user_firstname}&#160; #{loginBean.loggedinUser.user_lastname}</h3></td>
+			
+			</tr>
+
+			
+			
+			<tr>
+				<td><h3>Email: &#160; #{loginBean.loggedinUser.email_id}</h3></td>
+				
+			</tr>
+
+			
+			
+			<tr>
+				<td><h3>Gender: &#160; #{loginBean.loggedinUser.gender}</h3> </td>
+				
+			</tr>
+
+			
+			<tr>
+				<td><h3>Phone No.: &#160; #{loginBean.loggedinUser.phone_no}</h3></td>
+				
+			</tr>
+			
+			<tr>
+				<td><h3>Wallet Balance: &#160; Rs.&#160;#{rechargeBean.wallet.wallet_amount}</h3></td>
+				
+			</tr>
+	
+			<tr>
+				<td align="left"><h:commandLink value="Back to Home" immediate="true" action="dashboard.xhtml?faces-redirect=true"/></td>
+			</tr>
+		</table>	
+			
+		</h:form>
+	</body>
+</html>

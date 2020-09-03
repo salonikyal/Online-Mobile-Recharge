@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Login page</title>
+	
+</head>
+<body>
+	<h:form>
+
+	
+		<table border="0" align="center">
+			<th>
+			<td align="left" colspan="3"><h:messages id="message"
+					style="color:blue;" /></td>
+			</th>
+			<tr>
+				<td colspan="3" align="center">
+					<h2 style="color:brown;">ONLINE MOBILE RECHARGE</h2><hr />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<h2 style="color:gray;">USER LOGIN</h2>
+				</td>
+			</tr>
+			<tr>
+				<td><h:outputText value="Email Id:" /></td>
+				<td colspan="2"><h:inputText id="userid" placeholder="Email-id"
+						value="#{loginBean.login.userId}" required="true"
+						requiredMessage="Please enter Email-id" /> <h:message
+						for="userid" style="color:red;" /></td>
+			</tr>
+			<tr>
+				<td><h:outputText value="Password:" /></td>
+				<td colspan="2"><h:inputSecret id="password"
+						value="#{loginBean.login.password}" required="true"
+						requiredMessage="Please enter password" /> <h:message
+						for="password" style="color:red;" /></td>
+			</tr>
+		</table>
+		
+		<table border="0" align="center">
+
+			<tr>
+				<td><h:commandButton value="Login"
+						action="#{loginBean.userLogin}" /></td>
+					<td><h:commandButton type="reset" value="Cancel" /></td>
+			</tr>
+		</table>
+		<table border="0" align="center">
+	
+			<tr>
+				<td><h:outputText value="Forgot your password?" />
+					<h:commandLink value="Click here!" immediate="true"
+						action="forgetpassword.xhtml?faces-redirect=true" /></td>
+
+			</tr>
+
+		</table>
+		
+		<table border="0" align="center">
+	
+			<tr>
+				<td><h:outputText value="Not a user?" />
+					<h:commandLink value="Register here!" immediate="true"
+						action="User.xhtml?faces-redirect=true" /></td>
+			</tr>
+
+		</table>
+	
+		
+		
+	</h:form>
+</body>
+</html>

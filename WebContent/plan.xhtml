@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta charset="ISO-8859-1"/>
+
+<title>Plan</title>
+</head>
+<body>
+	<h1>PLAN</h1>
+	<hr />
+	<h:form>
+
+		<table>
+
+			<tr>
+				<td>Plan*</td>
+				<td><h:inputText id="plan" value="#{planBean.plan.plan_name}"
+						required="true" requiredMessage="Please enter a plan">
+					</h:inputText> <h:message for="plan" style="color:red;" /></td>
+			</tr>
+			
+			<tr>
+				<td>Amount*</td>
+				<td><h:inputText id="amount" value="#{planBean.plan.plan_amount}"
+						required="true" requiredMessage="Please enter amount">
+					</h:inputText> <h:message for="amount" style="color:red;" /></td>
+			</tr>
+			
+			<tr>
+				<td>Validity*</td>
+				<td><h:inputText id="validity" value="#{planBean.plan.plan_validity}"
+						required="true" requiredMessage="Please enter validity">
+					</h:inputText> <h:message for="validity" style="color:red;" /></td>
+			</tr>
+
+			<tr>
+				<td><h:commandButton type="submit" value=" Submit "  actionListener="#{planBean.addPlan}"/></td>
+				<td><h:commandButton type="reset" value="Cancel" /></td>
+			</tr>
+
+		</table>
+		
+		<table border="0" align="left">
+			<tr>
+				<td>
+					<h5>'*' indicates mandatory fields</h5>
+				</td>
+			</tr>
+		</table>
+
+	</h:form>
+
+</body>
+</html>
